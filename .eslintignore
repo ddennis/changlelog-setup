@@ -1,0 +1,8 @@
+src/serviceWorker.ts
+coverage
+dist
+build
+public
+**/node_modules
+!.eslintrc.js
+!.storybook

@@ -1,0 +1,110 @@
+{
+  "env": {
+    "browser": true,
+    "node": false,
+    "es6": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["jest", "@typescript-eslint", "react-hooks", "simple-import-sort","prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jest/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "prettier/@typescript-eslint",
+    "prettier/react"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.spec.js",
+        "*.spec.ts",
+        "*.spec.tsx",
+        "*.test.js",
+        "*.test.ts",
+        "*.test.tsx"
+      ],
+      "env": {
+        "jest/globals": true
+      }
+    },
+    {
+      "files": ["*.stories.js", "*.stories.ts", "*.stories.tsx"],
+      "env": { "node": true }
+    }
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".ts", ".tsx"] }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 90,
+        "semi": false
+      }
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "caughtErrors": "all",
+        "argsIgnorePattern": "^_",
+        "ignoreRestSiblings": true
+      }
+    ],
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "prefer-destructuring": [
+      "error",
+      {
+        "array": false,
+        "object": true
+      }
+    ],
+    "no-duplicate-imports": "error",
+    "no-implicit-coercion": "error",
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "react/self-closing-comp": "error",
+    "simple-import-sort/sort": "error",
+
+    // Disabled rules
+    "react/display-name": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-object-literal-type-assertion": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "@typescript-eslint/prefer-interface": "off",
+
+    // Replaced rules
+    "no-unused-vars": "off", // replaced by @typescript-eslint/no-unused-vars
+    "sort-imports": "off", // replaced by simple-import-sort/sort
+    "import/order": "off" // replaced by simple-import-sort/sort
+  }
+}
